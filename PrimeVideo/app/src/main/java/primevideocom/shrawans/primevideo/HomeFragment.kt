@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
     private val allSampleData =  ArrayList<SectionModel>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         val view  =  LayoutInflater.from( activity!!.applicationContext).inflate(R.layout.fragment_home, container, false)
         val recyclerView = view.findViewById(R.id.my_recycler_view) as RecyclerView
         recyclerView.setHasFixedSize(true)

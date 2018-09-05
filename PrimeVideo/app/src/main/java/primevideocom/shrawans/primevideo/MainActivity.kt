@@ -22,24 +22,14 @@ import primevideocom.shrawans.primevideo.R.id.nav_view
 
 class MainActivity : AppCompatActivity()  {
 
+    //Must be initlize before use
     private lateinit var mDrawerLayout: DrawerLayout
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpFragment()
         setUpToolbar()
-    }
-
-    fun  setUpFragment(){
-        var fragmentManager = getSupportFragmentManager()
-        var fragmentTranscation =  fragmentManager.beginTransaction()
-        var mainfragment =  MainFrgment()
-        mainfragment.mainContextFromContext = this
-        fragmentTranscation.replace(R.id.content_frame, mainfragment)
-        fragmentTranscation.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-        fragmentTranscation.commit()
     }
 
 
@@ -59,68 +49,30 @@ class MainActivity : AppCompatActivity()  {
         mDrawerLayout = findViewById(R.id.drawable_layout)
         val navigationView =  nav_view  ////(NavigationView) findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            // set item as selected to persist highlight
 
             menuItem.isChecked = true
             when (menuItem.itemId)  {
                 R.id.home -> {
-                    var fragmentManager = getSupportFragmentManager()
-
-                var mainfragment =  MainFrgment.newInstance(0)
-
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
-
+                    openFragmentWithViewPager(0)
                 }
                 R.id.tv_show -> {
-                    var mainfragment =  MainFrgment.newInstance(1)
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
-
-
-
+                    openFragmentWithViewPager(1)
                 }
                 R.id.movies -> {
-                    var mainfragment =  MainFrgment.newInstance(2)
-                    supportFragmentManager.beginTransaction()
-                            .setTransition(TRANSIT_FRAGMENT_FADE)
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
+                    openFragmentWithViewPager(2)
                 }
                 R.id.watchlist -> {
-                    var mainfragment =  MainFrgment.newInstance(3)
-                    supportFragmentManager.beginTransaction()
-                            .setTransition(TRANSIT_FRAGMENT_FADE)
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
-
+                    openFragmentWithViewPager(3)
                 }
                 R.id.downloads -> {
-                    var mainfragment =  MainFrgment.newInstance(4)
-                    supportFragmentManager.beginTransaction()
-                            .setTransition(TRANSIT_FRAGMENT_FADE)
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
-
+                    openFragmentWithViewPager(4)
                 }
-                R.id.settings -> {
-                    var mainfragment =  MainFrgment.newInstance(5)
-                    supportFragmentManager.beginTransaction()
-                            .setTransition(TRANSIT_FRAGMENT_FADE)
-                            .replace(R.id.content_frame,mainfragment)
-                            .addToBackStack(null)
-                            .commit()
 
+                R.id.settings -> {
+                    openFragmentWithViewPager(4)
                 }
                 R.id.help -> {
-
+                    openFragmentWithViewPager(4)
                 }
             }
             // close drawer when item is tapped
@@ -128,7 +80,11 @@ class MainActivity : AppCompatActivity()  {
 
             true
         }
+        addToolBar()
 
+    }
+
+    fun addToolBar(){
         // to allow toolbar to set
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -140,4 +96,23 @@ class MainActivity : AppCompatActivity()  {
         }
     }
 
+
+    fun  setUpFragment(){
+        var fragmentManager = getSupportFragmentManager()
+        var fragmentTranscation =  fragmentManager.beginTransaction()
+        var mainfragment =  MainFrgment()
+        mainfragment.mainContextFromContext = this
+        fragmentTranscation.replace(R.id.content_frame, mainfragment)
+        fragmentTranscation.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        fragmentTranscation.commit()
     }
+
+    fun openFragmentWithViewPager(ofIndex:Int){
+        var fragmentManager = getSupportFragmentManager()
+        var mainfragment =  MainFrgment.newInstance(ofIndex)
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame,mainfragment)
+                .addToBackStack(null)
+                .commit()
+    }
+}
