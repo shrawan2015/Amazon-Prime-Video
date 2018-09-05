@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tabIndicatorColor="@android:color/white"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@android:color/holo_green_dark"
+        app:tabSelectedTextColor="@android:color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/mainviewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
+        android:background="@android:color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

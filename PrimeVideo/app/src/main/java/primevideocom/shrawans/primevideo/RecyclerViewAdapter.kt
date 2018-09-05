@@ -1,5 +1,4 @@
 package primevideocom.shrawans.primevideo
-
 import android.content.Context
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
@@ -8,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.support.v7.widget.LinearLayoutManager
-import android.transition.CircularPropagation
 import me.relex.circleindicator.CircleIndicator
-import primevideocom.shrawans.primevideo.R.id.indicator
 import java.util.ArrayList
 
 
@@ -109,91 +106,3 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, private val ma
         }
 
     }
-
-
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//                when(viewType) {
-//            1 -> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.slider_recycle_view,parent, false)
-//                return SliderSectionView(inflatedView) as RecyclerView.ViewHolder
-//            }
-//
-//            2-> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-//                return  SingleSectionView(inflatedView)
-//
-//            }
-//            else -> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-//                return  SingleSectionView(inflatedView)
-//            }
-//
-//        }
-//    }
-//
-//
-//    override fun getItemCount(): Int {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//
-//    override fun getItemId(position: Int): Long {
-//        return super.getItemId(position)
-//    }
-//
-//    override fun getItemViewType(position: Int): Int {
-//
-//
-//        return super.getItemViewType(position)
-//    }
-//    class ViewHolder( v :View) : RecyclerView.ViewHolder(v){
-//
-//    }
-
-
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder {
-//        when(viewType) {
-//            1 -> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.slider_recycle_view,parent, false)
-//                return (ViewHolder)SliderSectionView(inflatedView)
-//            }
-//
-//            2-> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-//                return  SingleSectionView(inflatedView)
-//
-//            }
-//            else -> {
-//                val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-//                return  (ViewHolder)SingleSectionView(inflatedView)
-//            }
-//
-//        }
-//
-//    }
-//
-
-//
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//
-//    }
-//
-////    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-////
-////
-//////        holder.bindItems(movieList[position] ,mainContext )
-////    }
-//
-//
-//
-//    ///Type of viewholder in recyclerview in android
-//    class  ViewHolder(v:View) :RecyclerView.ViewHolder(v){
-//
-//    }
-//
-
-//}

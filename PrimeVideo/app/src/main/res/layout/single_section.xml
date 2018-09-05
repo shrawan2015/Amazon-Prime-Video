@@ -3,13 +3,15 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ececec"
+        android:layout_height="250dp"
+        android:background="#232323"
+         android:layout_marginStart="8dp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#494949"
             android:padding="2dp">
 
             <TextView
@@ -20,9 +22,10 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/btnMore"
+                android:paddingStart="10dp"
                 android:text="Sample Title"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
 
             <Button
                 android:id="@+id/btnMore"
@@ -31,17 +34,18 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="More"
-                android:textColor="#FFF" />
+                android:background="@android:color/transparent"
+                android:text="See More"
+                android:textColor="#8dd8e5" />
 
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_list"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:background="@color/colorAccentPrime"
+            android:background="#494949"
             android:layout_gravity="center_vertical"
             android:orientation="vertical" />
 
