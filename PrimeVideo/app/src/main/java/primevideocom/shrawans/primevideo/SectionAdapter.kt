@@ -6,8 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
+import primevideocom.shrawans.primevideo.R.id.itemImage
 import kotlin.coroutines.experimental.coroutineContext
+
+
 
 class SectionAdapter(val movieList: Array<MovieModel> , val mainContext:Context): RecyclerView.Adapter<SectionAdapter.SingleItemRowHolder>() {
 
@@ -30,8 +35,15 @@ class SectionAdapter(val movieList: Array<MovieModel> , val mainContext:Context)
         private var photo: MovieModel? = null
 
         fun bindItems(movie: MovieModel) {
-            val textViewName = itemView.findViewById(R.id.tvTitle) as TextView
-            textViewName.text = movie.name
+
+
+            val itemImage =  itemView.findViewById(R.id.itemImage) as ImageView
+            Picasso.get().load("https://i.imgur.com/tGbaZCY.jpg").into(itemImage)
+
+
+            // no feature
+            // val textViewName = itemView.findViewById(R.id.tvTitle) as TextView
+            //  textViewName.text = movie.name
         }
 
     }

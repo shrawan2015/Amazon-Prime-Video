@@ -13,10 +13,7 @@ import java.util.ArrayList
 class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, val mainContext: Context): RecyclerView.Adapter<RecyclerViewAdapter.SingleSectionView>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SingleSectionView {
-        println("qqqqqqqqqq")
-
         val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-
         return  SingleSectionView(inflatedView)
     }
 
@@ -24,7 +21,6 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, val mainContex
 
 
     override fun onBindViewHolder(holder: SingleSectionView, position: Int) {
-        println("qqqqqqqqqq")
         holder.bindItems(movieList[position] ,mainContext )
     }
 

@@ -74,7 +74,6 @@ class MainFrgment() : Fragment() {
 
 
     companion object {
-
         fun newInstance(indexValue: Int) = MainFrgment().apply {
             arguments = Bundle().apply {
                 putInt("REPLACE", indexValue)
