@@ -1,23 +1,16 @@
-package primevideocom.shrawans.primevideo
+package primevideocom.shrawans.primevideo.Activity
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.NavigationRes
-import android.support.design.R.styleable.NavigationView
-import android.support.design.widget.NavigationView
-import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
-import android.support.v4.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import primevideocom.shrawans.primevideo.R.id.nav_view
+import primevideocom.shrawans.primevideo.Fragment.MainFrgment
+import primevideocom.shrawans.primevideo.R
 
 
 class MainActivity : AppCompatActivity()  {
@@ -100,7 +93,7 @@ class MainActivity : AppCompatActivity()  {
     fun  setUpFragment(){
         var fragmentManager = getSupportFragmentManager()
         var fragmentTranscation =  fragmentManager.beginTransaction()
-        var mainfragment =  MainFrgment()
+        var mainfragment = MainFrgment()
         mainfragment.mainContextFromContext = this
         fragmentTranscation.replace(R.id.content_frame, mainfragment)
         fragmentTranscation.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)

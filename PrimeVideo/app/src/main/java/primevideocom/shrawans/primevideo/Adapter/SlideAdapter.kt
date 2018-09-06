@@ -1,4 +1,4 @@
-package primevideocom.shrawans.primevideo
+package primevideocom.shrawans.primevideo.Adapter
 
 import android.content.Context
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
+import primevideocom.shrawans.primevideo.R
 
 // private val images: ArrayList<Int>
 class SlideAdapter( val context: Context) : PagerAdapter() {

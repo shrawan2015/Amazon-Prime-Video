@@ -1,4 +1,4 @@
-package primevideocom.shrawans.primevideo
+package primevideocom.shrawans.primevideo.Adapter
 import android.content.Context
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.support.v7.widget.LinearLayoutManager
 import me.relex.circleindicator.CircleIndicator
+import primevideocom.shrawans.primevideo.Model.SectionModel
+import primevideocom.shrawans.primevideo.Model.SectionType
+import primevideocom.shrawans.primevideo.R
 import java.util.ArrayList
 
 
@@ -36,12 +39,12 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, private val ma
 
             1-> {
                 val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-                return  SingleSectionView(inflatedView)
+                return SingleSectionView(inflatedView)
 
             }
             else -> {
                 val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.single_section,parent, false)
-                return  SingleSectionView(inflatedView)
+                return SingleSectionView(inflatedView)
             }
 
         }
@@ -51,16 +54,16 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, private val ma
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
             0 -> {
-                var holder2 = holder as  SliderSectionView
+                var holder2 = holder as SliderSectionView
                 holder2.bindItems(movieList[position], mainContext)
             }
 
             1 -> {
-                var holder2 = holder as  SingleSectionView
+                var holder2 = holder as SingleSectionView
                 holder2.bindItems(movieList[position], mainContext)
             }
             else -> {
-                var holder2 = holder as  SingleSectionView
+                var holder2 = holder as SingleSectionView
                 holder2.bindItems(movieList[position], mainContext)
             }
 

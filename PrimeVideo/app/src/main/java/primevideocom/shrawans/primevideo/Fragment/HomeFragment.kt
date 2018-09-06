@@ -1,4 +1,4 @@
-package primevideocom.shrawans.primevideo
+package primevideocom.shrawans.primevideo.Fragment
 
 
 import android.os.Bundle
@@ -8,8 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import primevideocom.shrawans.primevideo.*
+import primevideocom.shrawans.primevideo.Adapter.RecyclerViewAdapter
+import primevideocom.shrawans.primevideo.Model.MovieModel
+import primevideocom.shrawans.primevideo.Model.SectionModel
+import primevideocom.shrawans.primevideo.Model.SectionType
 import java.util.*
-import kotlin.text.Typography.section
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,11 +47,11 @@ class HomeFragment : Fragment() {
 
     private fun createDummyData() {
 
-        var singlemdoel = arrayOf(MovieModel("item", "this is url" ) , MovieModel("Item ", "UR22L") , MovieModel("Item ", "URL33"), MovieModel("Item ", "URL44"), MovieModel("Item ", "URL55"), MovieModel("Item ", "URL66"), MovieModel("Item ", "URL5555"), MovieModel("Item ", "URL555555"))
+        var singlemdoel = arrayOf(MovieModel("item", "this is url"), MovieModel("Item ", "UR22L"), MovieModel("Item ", "URL33"), MovieModel("Item ", "URL44"), MovieModel("Item ", "URL55"), MovieModel("Item ", "URL66"), MovieModel("Item ", "URL5555"), MovieModel("Item ", "URL555555"))
 
-        val dm = SectionModel( SectionType.NoHeaderOfSection , "Watch Next TV and Movies" , singlemdoel)
-        val dm2 = SectionModel(  SectionType.MovieMaxCellWidth, "Tov Movies" , singlemdoel)
-        val dm3 = SectionModel( SectionType.MovieMinCellWidth , "Recommended Movies" , singlemdoel)
+        val dm = SectionModel(SectionType.NoHeaderOfSection, "Watch Next TV and Movies", singlemdoel)
+        val dm2 = SectionModel(SectionType.MovieMaxCellWidth, "Tov Movies", singlemdoel)
+        val dm3 = SectionModel(SectionType.MovieMinCellWidth, "Recommended Movies", singlemdoel)
 
         allSampleData?.add(dm)
         allSampleData?.add(dm2)

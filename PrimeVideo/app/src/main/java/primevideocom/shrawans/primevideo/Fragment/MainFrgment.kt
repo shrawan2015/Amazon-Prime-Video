@@ -1,7 +1,6 @@
-package primevideocom.shrawans.primevideo
+package primevideocom.shrawans.primevideo.Fragment
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-
-
+import primevideocom.shrawans.primevideo.R
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,7 +45,7 @@ class MainFrgment() : Fragment() {
         viewPager = view.findViewById(R.id.mainviewpager) as ViewPager
         tabLayout = view.findViewById(R.id.sliding_tabs) as TabLayout
         tabLayout?.setupWithViewPager(viewPager)
-        viewPager?.adapter =  MainFragmentAdapter(getChildFragmentManager())
+        viewPager?.adapter = MainFragmentAdapter(getChildFragmentManager())
 
         return view
     }
