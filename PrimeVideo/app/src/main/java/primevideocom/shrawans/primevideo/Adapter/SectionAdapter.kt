@@ -2,6 +2,7 @@ package primevideocom.shrawans.primevideo.Adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,10 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import primevideocom.shrawans.primevideo.Model.MovieModel
 import primevideocom.shrawans.primevideo.R
+import primevideocom.shrawans.primevideo.Model.*
 
 
-class SectionAdapter(val movieList: Array<MovieModel>, val mainContext:Context): RecyclerView.Adapter<SectionAdapter.SingleItemRowHolder>() {
+class SectionAdapter(val movieList: Array<NewMovieModel>, val mainContext:Context): RecyclerView.Adapter<SectionAdapter.SingleItemRowHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SingleItemRowHolder {
         val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.movie_cell,parent, false)
@@ -31,16 +33,14 @@ class SectionAdapter(val movieList: Array<MovieModel>, val mainContext:Context):
         private var view: View = v
         private var photo: MovieModel? = null
 
-        fun bindItems(movie: MovieModel) {
-
+        fun bindItems(movie: NewMovieModel) {
 
             val itemImage =  itemView.findViewById(R.id.itemImage) as ImageView
-            Picasso.get().load("https://i.imgur.com/tGbaZCY.jpg").into(itemImage)
+            
+            val url =  "https://image.tmdb.org/t/p/w500/" + movie.poster_path
+            Log.e("IMAGE",url)
+            Picasso.get().load(url).into(itemImage)
 
-
-            // no feature
-            // val textViewName = itemView.findViewById(R.id.tvTitle) as TextView
-            //  textViewName.text = movie.name
         }
 
     }

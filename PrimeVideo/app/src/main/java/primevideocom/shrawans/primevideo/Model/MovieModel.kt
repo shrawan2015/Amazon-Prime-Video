@@ -13,7 +13,7 @@ class MovieModel(var id: String ,var name:String ,var url:String = picURL) {
 
 //sectionType Decide Type of section we are going to layout
 //HeaderString is optional
-class  SectionModel(var sectionType: SectionType, var headerTitle:String = "Optional", var  sectionlist:Array<MovieModel> )
+class  SectionModel(var sectionType: SectionType, var headerTitle:String = "Optional", var  sectionlist:Array<NewMovieModel> )
 
 
 

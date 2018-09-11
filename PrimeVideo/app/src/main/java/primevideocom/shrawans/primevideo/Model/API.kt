@@ -7,8 +7,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface GithubService {
+
     @GET("popular?api_key=43dd8bb11c9abefef643794c5e0953d2&language=en-US&page=1")
-    fun retrieveNews(): Call<MovieList>
+    fun getPopularMovies(): Call<MovieList>
+
+
+    @GET("top_rated?api_key=43dd8bb11c9abefef643794c5e0953d2&language=en-US&page=1")
+    fun getTopRatedMovie(): Call<MovieList>
+
+
+    @GET("upcoming?api_key=43dd8bb11c9abefef643794c5e0953d2&language=en-US&page=1")
+    fun getupcomingMovie(): Call<MovieList>
+
+
 }
 
 class RepositoryRetriever {
@@ -21,12 +32,24 @@ class RepositoryRetriever {
     init {
         val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL) //1
-                .addConverterFactory(GsonConverterFactory.create()) //2
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
-        service = retrofit.create(GithubService::class.java) //3
+        service = retrofit.create(GithubService::class.java)
     }
 
-    fun getRepositories(callback: Callback<MovieList>) { //4
-        service.retrieveNews().enqueue(callback)
+    fun getPopularMoviesList(callback: Callback<MovieList>) {
+        service.getPopularMovies().enqueue(callback)
     }
+
+
+    fun getTopRatedMovie(callback: Callback<MovieList>) {
+        service.getTopRatedMovie().enqueue(callback)
+    }
+
+
+    fun getupcomingMovie(callback: Callback<MovieList>) {
+        service.getupcomingMovie().enqueue(callback)
+    }
+
+
 }

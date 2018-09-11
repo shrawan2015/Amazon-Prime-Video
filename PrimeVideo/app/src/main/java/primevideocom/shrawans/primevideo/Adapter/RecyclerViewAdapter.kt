@@ -98,7 +98,7 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, private val ma
             fun bindItems(movie: SectionModel, mContext: Context) {
 
                 var viewpager = view.findViewById(R.id.pager) as ViewPager
-                var adapter = SlideAdapter(context = mContext)
+                var adapter = SlideAdapter(context = mContext ,movie = movie.sectionlist )
                 viewpager.adapter = adapter
                 var indicator = view.findViewById(R.id.indicator) as CircleIndicator
                 indicator.setViewPager(viewpager)  //setViewPager(viewpager)
