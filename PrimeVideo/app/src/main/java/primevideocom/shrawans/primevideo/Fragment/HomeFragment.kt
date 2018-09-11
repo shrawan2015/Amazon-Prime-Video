@@ -81,14 +81,12 @@ class HomeFragment : Fragment() {
                 Log.e("value","${moviearray.size}")
 
                 if (top_rated){
-                    val dm = SectionModel(SectionType.NoHeaderOfSection, "Top Rated", response?.body()?.results!!.toTypedArray())
+                    val dm = SectionModel(SectionType.MovieMaxCellWidth, "Top Rated", response?.body()?.results!!.toTypedArray())
                     allSampleData?.add(dm)
 
                 }
                 if(upcoming){
-
                     val dm = SectionModel(SectionType.MovieMaxCellWidth, "Upcoming", response?.body()?.results!!.toTypedArray())
-
                     allSampleData?.add(dm)
 
                 }

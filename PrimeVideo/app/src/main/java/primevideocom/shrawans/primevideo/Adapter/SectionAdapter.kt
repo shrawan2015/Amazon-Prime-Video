@@ -36,7 +36,7 @@ class SectionAdapter(val movieList: Array<NewMovieModel>, val mainContext:Contex
         fun bindItems(movie: NewMovieModel) {
 
             val itemImage =  itemView.findViewById(R.id.itemImage) as ImageView
-            
+
             val url =  "https://image.tmdb.org/t/p/w500/" + movie.poster_path
             Log.e("IMAGE",url)
             Picasso.get().load(url).into(itemImage)
