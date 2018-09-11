@@ -1,6 +1,5 @@
 package primevideocom.shrawans.primevideo.Fragment
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import primevideocom.shrawans.primevideo.*
 import primevideocom.shrawans.primevideo.Adapter.RecyclerViewAdapter
-import primevideocom.shrawans.primevideo.Model.MovieModel
-import primevideocom.shrawans.primevideo.Model.SectionModel
-import primevideocom.shrawans.primevideo.Model.SectionType
+import primevideocom.shrawans.primevideo.Model.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 
@@ -41,14 +42,39 @@ class HomeFragment : Fragment() {
         val adapter = RecyclerViewAdapter(allSampleData as ArrayList<SectionModel>, activity!!.applicationContext)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
+
+        createMovieList()
+
         return view
 
     }
 
+    private val callback = object : Callback<MovieList> {
+        override fun onFailure(call: Call<MovieList>?, t: Throwable?) {
+            Log.e("MainActivity", "Problem calling Github API", t)
+        }
+
+        override fun onResponse(call: Call<MovieList>?, response: Response<MovieList>?) {
+
+            response?.isSuccessful.let {
+
+                Log.e("value", response?.body()?.results.toString())
+                print("the response is ${response?.body()?.results!!}")
+                print("the value is $it")
+
+            }
+        }
+    }
+
+    private val repoRetriever = RepositoryRetriever()
+
+     fun  createMovieList(){
+        repoRetriever.getRepositories(callback)
+    }
+
+
     private fun createDummyData() {
-
         var singlemdoel = arrayOf(MovieModel("item", "this is url"), MovieModel("Item ", "UR22L"), MovieModel("Item ", "URL33"), MovieModel("Item ", "URL44"), MovieModel("Item ", "URL55"), MovieModel("Item ", "URL66"), MovieModel("Item ", "URL5555"), MovieModel("Item ", "URL555555"))
-
         val dm = SectionModel(SectionType.NoHeaderOfSection, "Watch Next TV and Movies", singlemdoel)
         val dm2 = SectionModel(SectionType.MovieMaxCellWidth, "Tov Movies", singlemdoel)
         val dm3 = SectionModel(SectionType.MovieMinCellWidth, "Recommended Movies", singlemdoel)
@@ -61,5 +87,8 @@ class HomeFragment : Fragment() {
         allSampleData?.add(dm)
         allSampleData?.add(dm2)
     }
+
+
+
 
 }

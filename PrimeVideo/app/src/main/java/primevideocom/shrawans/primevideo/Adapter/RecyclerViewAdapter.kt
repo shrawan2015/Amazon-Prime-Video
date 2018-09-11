@@ -30,7 +30,6 @@ class RecyclerViewAdapter(val movieList: ArrayList<SectionModel>, private val ma
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
                 when(viewType) {
             0 -> {
                 val inflatedView =  LayoutInflater.from(mainContext).inflate(R.layout.slider_recycle_view,parent, false)
